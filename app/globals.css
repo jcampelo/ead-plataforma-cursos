@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  --blue: #1a56db;
+  --blue-dark: #1e429f;
+  --blue-light: #3f83f8;
+  --bg-dark: #0f172a;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+}
+
+body { font-family: Inter, system-ui, sans-serif; }
+
+html { scroll-behavior: smooth; }
+
+/* Foco acessível e consistente (teclado) em toda a plataforma */
+*:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Transições suaves por padrão nos elementos interativos */
+a, button {
+  transition: color .2s ease, background-color .2s ease, border-color .2s ease,
+              box-shadow .2s ease, transform .2s ease, opacity .2s ease;
+}
+
+/* Seleção de texto na cor da marca */
+::selection { background: color-mix(in srgb, var(--blue) 22%, transparent); }
+
+/* Números tabulares (preços, durações) — evita "pulo" de largura */
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
